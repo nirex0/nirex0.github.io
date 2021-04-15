@@ -186,3 +186,11 @@
   });
 
 })(jQuery);
+
+function revealPhone() {
+  document.getElementById("phonespan").innerHTML = "+98 921 208 5677";
+}
+
+function revealEmail() {
+  document.getElementById("emailspan").innerHTML = "nirex.0@gmail.com";
+}
