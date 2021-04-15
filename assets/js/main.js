@@ -192,5 +192,5 @@ function revealPhone() {
 }
 
 function revealEmail() {
-  document.getElementById("emailspan").innerHTML = "nirex.0@gmail.com";
+  document.getElementById("emailspan").innerHTML = "<a href=\"mailto:Nirex.0@Gmail.com\">Nirex.0@Gmail.com";
 }
