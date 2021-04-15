@@ -147,11 +147,11 @@
     });
   });
 
-  // Testimonials carousel (uses the Owl Carousel library)
-  $(".testimonials-carousel").owlCarousel({
-    autoplay: true,
-    dots: true,
-    loop: true,
+  // experiences carousel (uses the Owl Carousel library)
+  $(".experiences-carousel").owlCarousel({
+    autoplay: false,
+    dots: false,
+    loop: false,
     responsive: {
       0: {
         items: 1
@@ -187,10 +187,10 @@
 
 })(jQuery);
 
-function revealPhone() {
-  document.getElementById("phonespan").innerHTML = "<a href=\"tel:+989212085677\">+98 921 208 5677</a>";
+function revealPhone(i) {
+  document.getElementById("phonespan-" + i).innerHTML = "<a href=\"tel:+989212085677\">+98 921 208 5677</a>";
 }
 
-function revealEmail() {
-  document.getElementById("emailspan").innerHTML = "<a href=\"mailto:Nirex.0@Gmail.com\">Nirex.0@Gmail.com";
+function revealEmail(i) {
+  document.getElementById("emailspan-" + i).innerHTML = "<a href=\"mailto:Nirex.0@Gmail.com\">Nirex.0@Gmail.com";
 }
