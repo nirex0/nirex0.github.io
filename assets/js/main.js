@@ -188,7 +188,7 @@
 })(jQuery);
 
 function revealPhone() {
-  document.getElementById("phonespan").innerHTML = "+98 921 208 5677";
+  document.getElementById("phonespan").innerHTML = "<a href=\"tel:+989212085677\">+98 921 208 5677</a>";
 }
 
 function revealEmail() {
