@@ -194,3 +194,20 @@ function revealPhone(i) {
 function revealEmail(i) {
   document.getElementById("emailspan-" + i).innerHTML = "<a href=\"mailto:Nirex.0@Gmail.com\">Nirex.0@Gmail.com";
 }
+
+function calculateBirthday() {
+  var day = new Date().getDate() - 17;
+  var month = new Date().getMonth() - 10;
+  var year = new Date().getFullYear() - 1998;
+
+  if(month === 0 && day > 0) {
+    year++;
+  }
+  else if (month > 0) {
+    year++;
+  }
+
+  document.getElementById("agestrong").innerHTML = year.toString();
+}
+
+window.onload = calculateBirthday;
