@@ -200,6 +200,9 @@ function calculateBirthday() {
   var month = new Date().getMonth() - 10;
   var year = new Date().getFullYear() - 1998;
 
+  if(month === 0 && day === 0) {
+    // Birthday
+  }
   if(month === 0 && day > 0) {
     year++;
   }
