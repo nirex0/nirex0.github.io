@@ -201,6 +201,8 @@ function calculateBirthday() {
   var year = new Date().getFullYear() - 1998;
 
   if(month === 0 && day === 0) {
+    year++;
+    document.getElementById("agestrong").innerHTML = year.toString() + " 🥳🎂";
     // Birthday
   }
   if(month === 0 && day > 0) {
