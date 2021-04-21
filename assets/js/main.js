@@ -195,6 +195,20 @@ function revealEmail(i) {
   document.getElementById("emailspan-" + i).innerHTML = "<a href=\"mailto:Nirex.0@Gmail.com\">Nirex.0@Gmail.com";
 }
 
+function loadPipeline() {
+  getVisitorCountry();
+  calculateBirthday();
+}
+
+function getVisitorCountry() {
+  $.get("https://ipinfo.io/json?token=acd835cff578a5", function(response) {
+    if(response.country.toString() !== "IR")
+    {
+      document.getElementById("cityid").innerHTML = "Krasnoyarsk, Russian Federation";
+    }
+  }, "jsonp");
+}
+
 function calculateBirthday() {
   var day = new Date().getDate() - 17;
   var month = new Date().getMonth() - 10;
@@ -215,4 +229,4 @@ function calculateBirthday() {
   document.getElementById("agestrong").innerHTML = year.toString();
 }
 
-window.onload = calculateBirthday;
+window.onload = loadPipeline;
