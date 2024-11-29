@@ -4,19 +4,67 @@
 <head>
     <style>
         body,
-        html,
-        iframe {
+        html {
             margin: 0;
             padding: 0;
             height: 100%;
             width: 100%;
-            border: none;
+        }
+
+        #pdf-canvas {
+            display: block;
+            margin: auto;
+            width: 100%;
+            height: auto;
         }
     </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.6.347/pdf.min.js"></script>
 </head>
 
 <body>
-    <iframe src="AryanCV.pdf" width="100%" height="100%"></iframe>
+    <canvas id="pdf-canvas"></canvas>
+    <div id="error-message" style="color:red;"></div>
+
+    <script>
+        var url = 'https://raw.githubusercontent.com/nirex0/nirex0.github.io/refs/heads/master/AryanCV.pdf';
+
+        // Loading the PDF
+        pdfjsLib.getDocument(url).promise.then(function (pdf) {
+            console.log('PDF loaded');
+
+            // Fetching the first page
+            pdf.getPage(1).then(function (page) {
+                console.log('Page loaded');
+
+                var scale = 10;
+                var viewport = page.getViewport({ scale: scale });
+
+                // Prepare canvas using PDF page dimensions
+                var canvas = document.getElementById('pdf-canvas');
+                var context = canvas.getContext('2d');
+                canvas.height = viewport.height;
+                canvas.width = viewport.width;
+
+                // Render PDF page into canvas context
+                var renderContext = {
+                    canvasContext: context,
+                    viewport: viewport
+                };
+                page.render(renderContext).promise.then(function () {
+                    console.log('Page rendered');
+                }).catch(function (error) {
+                    document.getElementById('error-message').textContent = 'Error rendering page: ' + error.message;
+                    console.error('Error rendering page:', error);
+                });
+            }).catch(function (error) {
+                document.getElementById('error-message').textContent = 'Error loading page: ' + error.message;
+                console.error('Error loading page:', error);
+            });
+        }).catch(function (error) {
+            document.getElementById('error-message').textContent = 'Error loading PDF: ' + error.message;
+            console.error('Error loading PDF:', error);
+        });
+    </script>
 </body>
 
 </html>
